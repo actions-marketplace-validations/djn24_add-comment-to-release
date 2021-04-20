@@ -1,0 +1,12 @@
+name: 'Add comment to release'
+description: 'Append a comment to the description of an already-existing GitHub release.'
+inputs:
+  token:
+    description: 'GitHub token with permission to update the release. The GITHUB_TOKEN provided to a workflow should be enough.'
+    required: true
+  comment:
+    description: 'The text of the comment to add.'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
