@@ -21,6 +21,7 @@ const github = require('@actions/github');
             repo: repo,
             release_id: releaseId
         });
+
         let desc = release.data.body;
         if (desc == null || typeof(desc) === 'undefined') {
             desc = "";
@@ -31,8 +32,13 @@ const github = require('@actions/github');
         }
         desc += comment;
 
-        console.log(desc);
-
+        console.log(`Updating description of release to the following:\n${desc}`);
+        await octokit.rest.repos.updateRelease({
+            owner: owner,
+            repo: repo,
+            release_id: releaseId,
+            body: desc
+        });
     } catch (error) {
         core.setFailed(error.message);
     }
