@@ -17,9 +17,9 @@ const github = require('@actions/github');
         const releaseId = github.context.payload.release.id;
 
         const release = await octokit.rest.repos.getRelease({
-            owner,
-            repo,
-            releaseId,
+            owner: owner,
+            repo: repo,
+            release_id: releaseId
         });
         console.log(`body = ${release.body}`);
 
