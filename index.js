@@ -21,7 +21,7 @@ const github = require('@actions/github');
             repo: repo,
             release_id: releaseId
         });
-        console.log(`body = ${release.body}`);
+        console.log(`body = ${release.data.body}`);
         console.log(`release = ${JSON.stringify(release, null, '  ')}`);
 
         console.log(comment);
