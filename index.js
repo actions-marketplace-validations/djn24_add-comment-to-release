@@ -22,7 +22,7 @@ const github = require('@actions/github');
             release_id: releaseId
         });
         console.log(`body = ${release.body}`);
-        console.log(`release = ${JSON.stringify(release)}`);
+        console.log(`release = ${JSON.stringify(release, null, '  ')}`);
 
         console.log(comment);
 
