@@ -21,10 +21,17 @@ const github = require('@actions/github');
             repo: repo,
             release_id: releaseId
         });
-        console.log(`body = ${release.data.body}`);
-        console.log(`release = ${JSON.stringify(release, null, '  ')}`);
+        let desc = release.data.body;
+        if (desc == null || typeof(desc) === 'undefined') {
+            desc = "";
+        }
+        desc = desc.replace(/[\n\r\s]+$/,'');
+        if (desc.length > 0) {
+            desc += '\n\n';
+        }
+        desc += comment;
 
-        console.log(comment);
+        console.log(desc);
 
     } catch (error) {
         core.setFailed(error.message);
