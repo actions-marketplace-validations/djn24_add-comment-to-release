@@ -19,7 +19,7 @@ overwriting the change made by the other.
   uses: djn24/add-comment-to-release@v1
   with:
     token: ${{secrets.GITHUB_TOKEN}}
-    path: |-
+    comment: |-
       First line of comment.
       Second line of comment.
       The description field of a GitHub release uses markdown so it can
