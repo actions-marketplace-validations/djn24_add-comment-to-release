@@ -6,6 +6,12 @@ event.
 
 Written in JavaScript, so it can be used by any runner type.
 
+Appending a comment is done by reading the existing description and then writing an updated description.
+The two REST API calls happen in quick succession however there is the potential for a race condition.
+For example, if two different workflows triggered from the same release both use this action to append a
+comment, and both reach the stage where they are modifying the comment at the same time, one could end up
+overwriting the change made by the other.
+
 ### Example usage
 
 ```yaml
